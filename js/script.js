@@ -2,10 +2,12 @@
 const hamburger = document.querySelector('.hamburger');
 const navMenu = document.querySelector('.nav-menu');
 
-hamburger.addEventListener('click', () => {
-    hamburger.classList.toggle('active');
-    navMenu.classList.toggle('active');
-});
+if (hamburger && navMenu) {
+    hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        navMenu.classList.toggle('active');
+    });
+}
 
 // Close mobile menu when clicking on a link
 document.querySelectorAll('.nav-link').forEach(link => {
@@ -55,16 +57,6 @@ if (contactForm) {
     });
 }
 
-// Add scroll effect to navbar
-window.addEventListener('scroll', () => {
-    const navbar = document.querySelector('.navbar');
-    if (window.scrollY > 50) {
-        navbar.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.15)';
-    } else {
-        navbar.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
-    }
-});
-
 // CTA Button Click Handler
 const ctaButton = document.querySelector('.cta-button');
 if (ctaButton) {
@@ -108,26 +100,48 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// Add active state to navigation links based on scroll position
+// Combined scroll handler with throttling for better performance
+let scrollTimeout;
 window.addEventListener('scroll', () => {
-    const sections = document.querySelectorAll('section');
-    const navLinks = document.querySelectorAll('.nav-link');
+    if (scrollTimeout) {
+        return;
+    }
     
-    let current = '';
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
-        if (window.scrollY >= sectionTop - 100) {
-            current = section.getAttribute('id');
+    scrollTimeout = setTimeout(() => {
+        scrollTimeout = null;
+        
+        const navbar = document.querySelector('.navbar');
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-link');
+        
+        // Update navbar shadow
+        if (navbar) {
+            if (window.scrollY > 50) {
+                navbar.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.15)';
+            } else {
+                navbar.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
+            }
         }
-    });
-    
-    navLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href').slice(1) === current) {
-            link.classList.add('active');
-        }
-    });
+        
+        // Update active navigation link
+        let current = '';
+        sections.forEach(section => {
+            const sectionId = section.getAttribute('id');
+            if (sectionId) {
+                const sectionTop = section.offsetTop;
+                if (window.scrollY >= sectionTop - 100) {
+                    current = sectionId;
+                }
+            }
+        });
+        
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href').slice(1) === current) {
+                link.classList.add('active');
+            }
+        });
+    }, 50);
 });
 
 // Console message
