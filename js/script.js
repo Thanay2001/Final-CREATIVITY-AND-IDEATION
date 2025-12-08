@@ -41,10 +41,11 @@ if (contactForm) {
     contactForm.addEventListener('submit', (e) => {
         e.preventDefault();
         
-        // Get form elements
-        const nameInput = contactForm.querySelector('input[type="text"]');
-        const emailInput = contactForm.querySelector('input[type="email"]');
-        const messageInput = contactForm.querySelector('textarea');
+        // Get form elements - using more specific selectors
+        const formGroups = contactForm.querySelectorAll('.form-group');
+        const nameInput = formGroups[0]?.querySelector('input');
+        const emailInput = formGroups[1]?.querySelector('input');
+        const messageInput = formGroups[2]?.querySelector('textarea');
         
         // Check if elements exist
         if (!nameInput || !emailInput || !messageInput) {
@@ -56,8 +57,8 @@ if (contactForm) {
         const email = emailInput.value;
         const message = messageInput.value;
         
-        // Validate form
-        if (name && email && message) {
+        // Validate form - trim whitespace
+        if (name.trim() && email.trim() && message.trim()) {
             // Create and show success message
             showNotification('Thank you for your message! We will get back to you soon.', 'success');
             
@@ -110,7 +111,9 @@ function showNotification(message, type) {
     
     // Remove notification after 3 seconds
     setTimeout(() => {
-        notification.style.animation = 'slideIn 0.3s ease reverse';
+        notification.style.opacity = '0';
+        notification.style.transform = 'translateX(100%)';
+        notification.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
         setTimeout(() => {
             notification.remove();
         }, 300);
