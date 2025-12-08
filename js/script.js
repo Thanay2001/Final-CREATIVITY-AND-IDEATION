@@ -10,12 +10,14 @@ if (hamburger && navMenu) {
 }
 
 // Close mobile menu when clicking on a link
-document.querySelectorAll('.nav-link').forEach(link => {
-    link.addEventListener('click', () => {
-        hamburger.classList.remove('active');
-        navMenu.classList.remove('active');
+if (hamburger && navMenu) {
+    document.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            navMenu.classList.remove('active');
+        });
     });
-});
+}
 
 // Smooth Scrolling
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -39,22 +41,80 @@ if (contactForm) {
     contactForm.addEventListener('submit', (e) => {
         e.preventDefault();
         
+        // Get form elements
+        const nameInput = contactForm.querySelector('input[type="text"]');
+        const emailInput = contactForm.querySelector('input[type="email"]');
+        const messageInput = contactForm.querySelector('textarea');
+        
+        // Check if elements exist
+        if (!nameInput || !emailInput || !messageInput) {
+            return;
+        }
+        
         // Get form values
-        const name = contactForm.querySelector('input[type="text"]').value;
-        const email = contactForm.querySelector('input[type="email"]').value;
-        const message = contactForm.querySelector('textarea').value;
+        const name = nameInput.value;
+        const email = emailInput.value;
+        const message = messageInput.value;
         
         // Validate form
         if (name && email && message) {
-            // Display success message
-            alert('Thank you for your message! We will get back to you soon.');
+            // Create and show success message
+            showNotification('Thank you for your message! We will get back to you soon.', 'success');
             
             // Reset form
             contactForm.reset();
         } else {
-            alert('Please fill in all fields.');
+            showNotification('Please fill in all fields.', 'error');
         }
     });
+}
+
+// Helper function to show notifications
+function showNotification(message, type) {
+    // Create notification element
+    const notification = document.createElement('div');
+    notification.textContent = message;
+    notification.style.cssText = `
+        position: fixed;
+        top: 100px;
+        right: 20px;
+        padding: 1rem 2rem;
+        background: ${type === 'success' ? '#10b981' : '#ef4444'};
+        color: white;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        z-index: 10000;
+        animation: slideIn 0.3s ease;
+    `;
+    
+    // Add animation style if not exists
+    if (!document.getElementById('notification-style')) {
+        const style = document.createElement('style');
+        style.id = 'notification-style';
+        style.textContent = `
+            @keyframes slideIn {
+                from {
+                    transform: translateX(100%);
+                    opacity: 0;
+                }
+                to {
+                    transform: translateX(0);
+                    opacity: 1;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    }
+    
+    document.body.appendChild(notification);
+    
+    // Remove notification after 3 seconds
+    setTimeout(() => {
+        notification.style.animation = 'slideIn 0.3s ease reverse';
+        setTimeout(() => {
+            notification.remove();
+        }, 300);
+    }, 3000);
 }
 
 // CTA Button Click Handler
@@ -137,7 +197,8 @@ window.addEventListener('scroll', () => {
         
         navLinks.forEach(link => {
             link.classList.remove('active');
-            if (link.getAttribute('href').slice(1) === current) {
+            const href = link.getAttribute('href');
+            if (href && href.slice(1) === current) {
                 link.classList.add('active');
             }
         });
