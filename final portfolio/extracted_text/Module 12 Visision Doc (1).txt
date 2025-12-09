@@ -1,0 +1,95 @@
+VISION DOCUMENT — Anthony Than
+
+
+
+Vision
+
+I want to become a lead game developer and creative technologist who builds narrative-
+driven, emotionally resonant, and technically impressive interactive experiences. My dream
+is to create games that merge storytelling, design, and immersive technology—projects that
+inspire people, spark imagination, and leave a lasting impact. Long-term, I want to found or
+co-create a studio known for innovation, player-centered design, and heartfelt
+worldbuilding.
+
+
+
+Role Model — Hideo Kojima (Game Director, Designer, Creative Visionary)
+
+Where he grew up: Born in Setagaya, Tokyo and raised in Osaka, Kojima spent his childhood
+devouring books, films, and television—developing a love for narrative and worldbuilding
+early on.
+
+Education: He studied economics at Tokyo’s Keio University, but spent his free time writing
+stories, making short films, and dreaming of game creation. He didn’t receive formal game-
+design education—he built his skills through curiosity, persistence, and self-driven
+creativity.
+
+Influences: Cinema (especially Western film), literature, photography, and his personal
+experiences with loneliness and imagination. Directors like Kubrick and novelists like
+Gabriel García Márquez shaped his storytelling style.
+
+Big Break: Kojima joined Konami in the 1980s, where he eventually pitched Metal Gear. His
+breakthrough came with Metal Gear Solid (1998), which changed narrative games forever.
+
+Why he inspires me: He proves that creativity isn’t limited by medium—games can be art.
+He blends technology, storytelling, and emotion with fearlessness. He built an entire studio
+based on a vision, and his willingness to innovate—even when doubted—shows me the
+power of staying committed to your ideas.
+
+
+
+Place
+
+I want to pursue this dream in Cincinnati while I build my foundation, and eventually
+transition to a larger creative tech hub such as Seattle, Los Angeles, or Tokyo, where game
+studios and experimental tech companies thrive. My long-term goal is to work in a space
+that values innovation, narrative design, and multidisciplinary creativity.
+Entry Point — Path Toward the Dream
+
+Goal: Begin as a Game Developer or Software Engineer at a studio known for strong
+narratives or inventive mechanics.
+
+
+
+Tactics:
+
+• Build a polished portfolio including:
+
+ - A narrative-driven indie game prototype
+
+ - A polished web-based game (e.g., Drip Drop)
+
+ - A systems-heavy project that showcases engineering skill
+
+• Submit my work to indie game showcases (IGF, itch.io festivals, student competitions).
+
+• Apply for internships or junior roles at studios such as Nintendo, Bungie, Naughty Dog,
+indie studios, or Cincinnati-based creative tech companies.
+
+• Strengthen network through LinkedIn, GDC talks, Discord dev communities, and local
+Cincinnati game dev meetups.
+
+• Collaborate with peers at UC on cross-disciplinary creative projects—blending software
+dev, art, and storytelling.
+
+• Continue building technical depth: Unity, Unreal Engine, gameplay systems, AI behavior,
+networking, shader programming, and full-stack development.
+
+
+
+Possible Creative Community to Connect With
+
+• Cincinnati Game Dev Meetup (CincyIGDA)
+
+• UC Game Development Club
+
+• Global Game Jam + local hackathons
+
+• Indie dev Discord communities
+
+
+
+Words of Wisdom
+
+“Keep building. Keep imagining. Keep going.”
+
