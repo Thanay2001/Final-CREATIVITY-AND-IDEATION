@@ -1,0 +1,117 @@
+{
+  "generated_at": "2025-12-09T21:30:00Z",
+  "items": [
+    {
+      "filename": "Assignment 8_ Screenplay (3).pdf",
+      "type": "pdf",
+      "extracted_text": "final portfolio/extracted_text/Assignment 8_ Screenplay (3).txt",
+      "cleaned_filename": "final portfolio/assignment_8__screenplay.pdf"
+    },
+    {
+      "filename": "Assignment 9 (1).pdf",
+      "type": "pdf",
+      "extracted_text": "final portfolio/extracted_text/Assignment 9 (1).txt",
+      "cleaned_filename": "final portfolio/assignment_9.pdf"
+    },
+    {
+      "filename": "Module 1 Assignment (1).pdf",
+      "type": "pdf",
+      "extracted_text": "final portfolio/extracted_text/Module 1 Assignment (1).txt",
+      "cleaned_filename": "final portfolio/module_1_assignment.pdf"
+    },
+    {
+      "filename": "Module 12 Visision Doc (1).pdf",
+      "type": "pdf",
+      "extracted_text": "final portfolio/extracted_text/Module 12 Visision Doc (1).txt",
+      "notes": "Possible typo in original filename: 'Visision'",
+      "cleaned_filename": "final portfolio/module_12_visision_doc.pdf"
+    },
+    {
+      "filename": "Module 2 Assignment Self-Analysis.docx",
+      "type": "docx",
+      "extracted_text": "final portfolio/extracted_text/Module 2 Assignment Self-Analysis.txt",
+      "cleaned_filename": "final portfolio/module_2_assignment_self-analysis.docx"
+    },
+    {
+      "filename": "Module 4 Assignment (1).pdf",
+      "type": "pdf",
+      "extracted_text": "final portfolio/extracted_text/Module 4 Assignment (1).txt",
+      "cleaned_filename": "final portfolio/module_4_assignment.pdf"
+    },
+    {
+      "filename": "Module 6 Assignment.mp4",
+      "type": "mp4",
+      "transcripts": {
+        "txt": "final portfolio/transcripts/Module 6 Assignment.txt",
+        "srt": "final portfolio/transcripts/Module 6 Assignment.srt",
+        "vtt": "final portfolio/transcripts/Module 6 Assignment.vtt",
+        "json": "final portfolio/transcripts/Module 6 Assignment.json"
+      },
+      "cleaned_filename": "final portfolio/module_6_assignment.mp4"
+    },
+    {
+      "filename": "Module 7 Reflection (1).pdf",
+      "type": "pdf",
+      "extracted_text": "final portfolio/extracted_text/Module 7 Reflection (1).txt",
+      "cleaned_filename": "final portfolio/module_7_reflection.pdf"
+    },
+    {
+      "filename": "Reflection report 6.pdf",
+      "type": "pdf",
+      "extracted_text": "final portfolio/extracted_text/Reflection report 6.txt",
+      "cleaned_filename": "final portfolio/reflection_report_6.pdf"
+    },
+    {
+      "filename": "Thanay Module 10.docx.pdf",
+      "type": "pdf",
+      "extracted_text": "final portfolio/extracted_text/Thanay Module 10.docx.txt",
+      "notes": "Originally named like a DOCX but is a PDF file",
+      "cleaned_filename": "final portfolio/thanay_module_10.docx.pdf"
+    },
+    {
+      "filename": "Thanay Module 11.pdf",
+      "type": "pdf",
+      "extracted_text": "final portfolio/extracted_text/Thanay Module 11.txt",
+      "cleaned_filename": "final portfolio/thanay_module_11.pdf"
+    },
+    {
+      "filename": "Thanay Module 5 Assignment (1).pdf",
+      "type": "pdf",
+      "extracted_text": "final portfolio/extracted_text/Thanay Module 5 Assignment (1).txt",
+      "cleaned_filename": "final portfolio/thanay_module_5_assignment.pdf"
+    },
+    {
+      "filename": "Thanay-Module 3 Assignment (1).pdf",
+      "type": "pdf",
+      "extracted_text": "final portfolio/extracted_text/Thanay-Module 3 Assignment (1).txt",
+      "cleaned_filename": "final portfolio/thanay-module_3_assignment.pdf"
+    },
+    {
+      "filename": "Thanay_screenplay (1).pdf",
+      "type": "pdf",
+      "extracted_text": "final portfolio/extracted_text/Thanay_screenplay (1).txt",
+      "cleaned_filename": "final portfolio/thanay_screenplay.pdf"
+    },
+    {
+      "filename": "module 7.mp4",
+      "type": "mp4",
+      "transcripts": {
+        "txt": "final portfolio/transcripts/module 7.txt",
+        "srt": "final portfolio/transcripts/module 7.srt",
+        "vtt": "final portfolio/transcripts/module 7.vtt",
+        "json": "final portfolio/transcripts/module 7.json"
+      },
+      "cleaned_filename": "final portfolio/module_7.mp4"
+    }
+  ],
+  "citizimum": {
+    "11": {
+      "shared": [
+        "final portfolio/module_6_assignment.mp4",
+        "final portfolio/module_7.mp4",
+        "final portfolio/assignment_9.pdf"
+      ],
+      "responses": []
+    }
+  }
+}

@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion'
 import Link from 'next/link'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 export default function ModulesPage() {
   const [expandedModule, setExpandedModule] = useState<number | null>(1)
@@ -13,6 +13,50 @@ export default function ModulesPage() {
     description: 'Creative work and reflection from this module',
     content: 'Add your creative piece and reflection questions here...',
   }))
+
+  const [assetMap, setAssetMap] = useState<Record<number, string>>({})
+
+  useEffect(() => {
+    let mounted = true
+    fetch('/portfolio/portfolio_index.json')
+      .then((r) => r.json())
+      .then((json) => {
+        if (!mounted) return
+        const map: Record<number, { url: string; type: string }[]> = {}
+        const items = json.items || []
+        // Build a list of candidate assets per module (keep order)
+        items.forEach((it: any) => {
+          const names = [it.cleaned_filename || '', it.filename || '']
+          for (const nm of names) {
+            if (!nm) continue
+            const m = nm.match(/module[_\- ]?(\d+)/i)
+            if (!m) continue
+            const id = Number(m[1])
+            const basename = nm.split('/').pop()
+            if (!basename) continue
+            const url = `/portfolio/assets/${basename}`
+            const type = (it.type || '').toLowerCase() || (basename.split('.').pop() || '').toLowerCase()
+            if (!map[id]) map[id] = []
+            // avoid duplicates
+            if (!map[id].some((x) => x.url === url)) map[id].push({ url, type })
+          }
+        })
+        // reduce to prefer mp4 then pdf then first
+        const reduced: Record<number, string> = {}
+        Object.keys(map).forEach((k) => {
+          const id = Number(k)
+          const list = map[id]
+          const mp4 = list.find((x) => x.type === 'mp4')
+          const pdf = list.find((x) => x.type === 'pdf')
+          reduced[id] = (mp4 && mp4.url) || (pdf && pdf.url) || (list[0] && list[0].url)
+        })
+        setAssetMap(reduced)
+      })
+      .catch(() => {})
+    return () => {
+      mounted = false
+    }
+  }, [])
 
   return (
     <main className="min-h-screen bg-cream pt-24">
@@ -76,8 +120,34 @@ export default function ModulesPage() {
                     className="mt-4 p-6 bg-charcoal/5 rounded-lg"
                   >
                     <p className="text-charcoal/70 mb-4">{module.content}</p>
-                    <div className="text-sm text-sage">
+                    <div className="text-sm text-sage mb-4">
                       📝 Add your reflection and creative work here
+                    </div>
+                    {assetMap[module.id] ? (
+                      <div className="mb-4">
+                        {/* Inline embed: prefer video for mp4, iframe for pdf */}
+                        {assetMap[module.id].endsWith('.mp4') ? (
+                          <video controls style={{ width: '100%', maxHeight: 480, border: '1px solid #ddd' }}>
+                            <source src={assetMap[module.id]} type="video/mp4" />
+                            Your browser does not support the video tag.
+                          </video>
+                        ) : assetMap[module.id].endsWith('.pdf') ? (
+                          <iframe src={assetMap[module.id]} style={{ width: '100%', height: 640, border: '1px solid #ddd' }} />
+                        ) : (
+                          <a href={assetMap[module.id]} className="text-sage">Open asset</a>
+                        )}
+                      </div>
+                    ) : (
+                      <div className="mb-4 text-sm text-gray-500">No primary asset available for this module.</div>
+                    )}
+
+                    <div className="flex gap-4">
+                      <Link
+                        href={`/portfolio/module/${module.id}`}
+                        className="inline-block px-4 py-2 border border-sage text-sage rounded-sm text-sm"
+                      >
+                        Open module page
+                      </Link>
                     </div>
                   </motion.div>
                 )}
