@@ -29,6 +29,9 @@ export default function ModulePage({ params }: { params: { id: string } }) {
     return m ? m[1] === id : false;
   });
 
+  // citizimum submissions (module 11 may have shared pieces from other modules)
+  const citiz = (data && data.citizimum && data.citizimum[id]) ? data.citizimum[id] : null;
+
   return (
     <main style={{ padding: '1rem' }}>
       <header>
@@ -39,6 +42,32 @@ export default function ModulePage({ params }: { params: { id: string } }) {
       </header>
 
       {moduleItems.length === 0 && <p>No items found for this module.</p>}
+
+      {citiz && (
+        <section style={{ border: '1px dashed #ccc', padding: '1rem', borderRadius: 8, marginBottom: '1rem', background: '#fbfbfb' }}>
+          <h2>Citizimum submissions</h2>
+          <p>Pieces you shared as part of the Citizimum activity for this module:</p>
+          <ul>
+            {citiz.shared.map((s: string, i: number) => {
+              const name = path.basename(s);
+              const asset = `/portfolio/assets/${name}`;
+              return (
+                <li key={i}><a href={asset} target="_blank">{name}</a></li>
+              );
+            })}
+          </ul>
+          {(!citiz.responses || citiz.responses.length === 0) ? (
+            <p style={{ color: '#a00' }}>No responses received yet.</p>
+          ) : (
+            <div>
+              <h3>Responses</h3>
+              <ul>
+                {citiz.responses.map((r: string, idx: number) => <li key={idx}>{r}</li>)}
+              </ul>
+            </div>
+          )}
+        </section>
+      )}
 
       {moduleItems.map((it, idx) => {
         const type = it.type || '';
