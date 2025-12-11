@@ -1,7 +1,5 @@
 'use client'
 
-import Link from 'next/link'
-
 export default function ReflectionPage() {
   return (
     <main className="min-h-screen bg-cream pt-24">
