@@ -1,9 +1,16 @@
+
 name: Publish portfolio to GitHub Pages
 
 on:
   push:
     branches: [ main ]
   workflow_dispatch: {}
+
+# Give the workflow explicit permissions needed to push to gh-pages
+permissions:
+  contents: write
+  pages: write
+  id-token: write
 
 jobs:
   deploy:
@@ -12,6 +19,11 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          # fetch full history to avoid push issues from shallow clones
+          fetch-depth: 0
+          # ensure the action runner has credentials to push
+          persist-credentials: true
 
       - name: Publish to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
