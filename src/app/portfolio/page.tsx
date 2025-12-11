@@ -25,7 +25,7 @@ export default function PortfolioPage() {
   return (
     <main style={{ padding: '1rem' }}>
       <h1>Final Portfolio</h1>
-      <p>Modules detected in your portfolio. Click a module to open its page.</p>
+      <p>Modules detected in my portfolio. Click a module to open its page.</p>
       <ul>
         {sorted.map((m) => (
           <li key={m}>

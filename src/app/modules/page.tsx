@@ -68,7 +68,7 @@ export default function ModulesPage() {
           <div className="flex gap-8 text-sm">
             <Link href="/modules" className="font-bold text-sage">Modules</Link>
             <Link href="/feedback" className="hover:text-sage transition">Feedback</Link>
-            <Link href="/final-piece" className="hover:text-sage transition">Final Piece</Link>
+            <Link href="/nebula-of-thought" className="hover:text-sage transition">Nebula of Thought</Link>
             <Link href="/reflection" className="hover:text-sage transition">Reflection</Link>
           </div>
         </div>

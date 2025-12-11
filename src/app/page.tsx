@@ -30,17 +30,10 @@ export default function Home() {
     },
     {
       id: 3,
-      title: 'Final Piece',
-      description: 'Expanded & revised creative work incorporating feedback',
-      href: '/final-piece',
+      title: 'Nebula of Thought',
+      description: 'Favorite work — Nebula of Thought',
+      href: '/nebula-of-thought',
       color: 'from-gold to-terracotta',
-    },
-    {
-      id: 4,
-      title: 'Reflection',
-      description: 'One-page essay: journey, growth, and creative insights',
-      href: '/reflection',
-      color: 'from-charcoal to-sage',
     },
   ]
 
@@ -55,7 +48,7 @@ export default function Home() {
           <div className="flex gap-8 text-sm">
             <Link href="/modules" className="hover:text-sage transition">Modules</Link>
             <Link href="/feedback" className="hover:text-sage transition">Feedback</Link>
-            <Link href="/final-piece" className="hover:text-sage transition">Final Piece</Link>
+            <Link href="/nebula-of-thought" className="hover:text-sage transition">Nebula of Thought</Link>
           </div>
         </div>
       </nav>
@@ -128,9 +121,13 @@ export default function Home() {
               >
                 <Link href={section.href}>
                   <div className={`relative h-64 rounded-lg overflow-hidden cursor-pointer group`}>
-                    <div
-                      className={`absolute inset-0 bg-gradient-to-br ${section.color} opacity-0 group-hover:opacity-100 transition-opacity duration-300`}
-                    // Reflection section removed
+                    <div className={`absolute inset-0 bg-gradient-to-br ${section.color} opacity-0 group-hover:opacity-100 transition-opacity duration-300`} />
+                    <div className="relative h-full flex flex-col justify-end p-8 bg-charcoal/5 group-hover:bg-charcoal/10 transition">
+                      <h3 className="text-2xl font-serif font-bold text-charcoal mb-3 group-hover:text-cream transition">
+                        {section.title}
+                      </h3>
+                      <p className="text-charcoal/70 group-hover:text-cream/80 transition">
+                        {section.description}
                       </p>
                       <div className="mt-4 text-sm font-medium text-sage group-hover:text-gold transition">
                         Explore →

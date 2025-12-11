@@ -46,7 +46,7 @@ export default function ModulePage({ params }: { params: { id: string } }) {
       {citiz && (
         <section style={{ border: '1px dashed #ccc', padding: '1rem', borderRadius: 8, marginBottom: '1rem', background: '#fbfbfb' }}>
           <h2>Citizimum submissions</h2>
-          <p>Pieces you shared as part of the Citizimum activity for this module:</p>
+          <p>Pieces I shared as part of the Citizimum activity for this module:</p>
           <ul>
             {citiz.shared.map((s: string, i: number) => {
               const name = path.basename(s);

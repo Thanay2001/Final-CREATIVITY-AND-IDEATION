@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 import Link from 'next/link'
 
 export default function FeedbackPage() {
-  // Showcase the three pieces you shared for peer feedback (no responses received)
+  // Showcase the three pieces I shared for peer feedback (no responses received)
   const sharedPieces = [
     {
       id: 6,
@@ -23,8 +23,8 @@ export default function FeedbackPage() {
     {
       id: 9,
       title: 'Module 9 Assignment',
-      asset: '/portfolio/assets/assignment_9.pdf',
-      type: 'pdf',
+      asset: '/portfolio/assets/nebula_of_thought.png',
+      type: 'png',
       shared: 'November 13, 2025',
     },
   ]
@@ -39,7 +39,7 @@ export default function FeedbackPage() {
           <div className="flex gap-8 text-sm">
             <Link href="/modules" className="hover:text-sage transition">Modules</Link>
             <Link href="/feedback" className="font-bold text-sage">Feedback</Link>
-            <Link href="/final-piece" className="hover:text-sage transition">Final Piece</Link>
+            <Link href="/nebula-of-thought" className="hover:text-sage transition">Nebula of Thought</Link>
           </div>
         </div>
       </nav>
@@ -59,7 +59,7 @@ export default function FeedbackPage() {
             transition={{ delay: 0.1 }}
             className="text-lg text-charcoal/60 mb-12"
           >
-            Three pieces you shared for peer feedback (Modules 6, 7, and 9). No feedback was received from peers.
+            Three pieces I shared for peer feedback (Modules 6, 7, and 9). No feedback was received from peers.
           </motion.p>
 
           <div className="space-y-8">
@@ -82,6 +82,8 @@ export default function FeedbackPage() {
                       <source src={piece.asset} type="video/mp4" />
                       Your browser does not support the video tag.
                     </video>
+                  ) : piece.type === 'png' || piece.type === 'jpg' || piece.type === 'jpeg' ? (
+                    <img src={piece.asset} alt={piece.title} style={{ width: '100%', maxHeight: 640, objectFit: 'contain', border: '1px solid #ddd' }} />
                   ) : (
                     <iframe src={piece.asset} style={{ width: '100%', height: 480, border: '1px solid #ddd' }} />
                   )}
@@ -95,21 +97,7 @@ export default function FeedbackPage() {
             ))}
           </div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4 }}
-            className="mt-12 p-8 bg-sage/10 rounded-lg border border-sage/30"
-          >
-            <h3 className="text-lg font-serif font-bold text-charcoal mb-4">How to Use This Feedback</h3>
-            <ul className="text-charcoal/70 space-y-2 text-sm">
-              <li>• Review feedback with an open mind and empathetic perspective</li>
-              <li>• Identify patterns across multiple feedback points</li>
-              <li>• Choose which feedback resonates with your artistic vision</li>
-              <li>• Use insights to inform your final piece revision</li>
-              <li>• Document the evolution and changes made</li>
-            </ul>
-          </motion.div>
+          {/* Guidance removed per request */}
         </div>
       </section>
     </main>
