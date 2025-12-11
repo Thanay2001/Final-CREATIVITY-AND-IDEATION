@@ -5,7 +5,7 @@ import Link from 'next/link'
 import { useState } from 'react'
 
 export default function Home() {
-  const [hoveredCard, setHoveredCard] = useState<number | null>(null)
+  const [, setHoveredCard] = useState<number | null>(null)
 
   const fadeInUp = {
     initial: { opacity: 0, y: 30 },
