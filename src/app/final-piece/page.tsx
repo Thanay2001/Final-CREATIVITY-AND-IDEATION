@@ -15,7 +15,6 @@ export default function FinalPiecePage() {
             <Link href="/modules" className="hover:text-sage transition">Modules</Link>
             <Link href="/feedback" className="hover:text-sage transition">Feedback</Link>
             <Link href="/final-piece" className="font-bold text-sage">Final Piece</Link>
-            <Link href="/reflection" className="hover:text-sage transition">Reflection</Link>
           </div>
         </div>
       </nav>

@@ -56,7 +56,6 @@ export default function Home() {
             <Link href="/modules" className="hover:text-sage transition">Modules</Link>
             <Link href="/feedback" className="hover:text-sage transition">Feedback</Link>
             <Link href="/final-piece" className="hover:text-sage transition">Final Piece</Link>
-            <Link href="/reflection" className="hover:text-sage transition">Reflection</Link>
           </div>
         </div>
       </nav>
@@ -131,13 +130,7 @@ export default function Home() {
                   <div className={`relative h-64 rounded-lg overflow-hidden cursor-pointer group`}>
                     <div
                       className={`absolute inset-0 bg-gradient-to-br ${section.color} opacity-0 group-hover:opacity-100 transition-opacity duration-300`}
-                    />
-                    <div className="relative h-full flex flex-col justify-end p-8 bg-charcoal/5 group-hover:bg-charcoal/10 transition">
-                      <h3 className="text-2xl font-serif font-bold text-charcoal mb-3 group-hover:text-cream transition">
-                        {section.title}
-                      </h3>
-                      <p className="text-charcoal/70 group-hover:text-cream/80 transition">
-                        {section.description}
+                    // Reflection section removed
                       </p>
                       <div className="mt-4 text-sm font-medium text-sage group-hover:text-gold transition">
                         Explore →

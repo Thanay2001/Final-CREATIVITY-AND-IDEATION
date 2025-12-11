@@ -4,47 +4,28 @@ import { motion } from 'framer-motion'
 import Link from 'next/link'
 
 export default function FeedbackPage() {
-  const peerFeedback = [
+  // Showcase the three pieces you shared for peer feedback (no responses received)
+  const sharedPieces = [
     {
-      id: 1,
-      title: 'Peer Piece #1',
-      submitted: 'November 13, 2025',
-      feedback: [
-        {
-          from: 'Peer 1',
-          positive: 'Strong concept and execution. Really loved the use of color and composition.',
-          growth: 'Consider pushing the contrast further to make the focal point more prominent.',
-        },
-        {
-          from: 'Peer 2',
-          positive: 'Creative approach to the subject matter. Very thoughtful.',
-          growth: 'Expand on the narrative elements to deepen audience engagement.',
-        },
-      ],
+      id: 6,
+      title: 'Module 6 Assignment',
+      asset: '/portfolio/assets/module_6_assignment.mp4',
+      type: 'mp4',
+      shared: 'November 13, 2025',
     },
     {
-      id: 2,
-      title: 'Peer Piece #2',
-      submitted: 'November 13, 2025',
-      feedback: [
-        {
-          from: 'Peer 1',
-          positive: 'Excellent technical skill combined with artistic vision.',
-          growth: 'Could benefit from more whitespace and breathing room.',
-        },
-      ],
+      id: 7,
+      title: 'Module 7 Assignment',
+      asset: '/portfolio/assets/module_7.mp4',
+      type: 'mp4',
+      shared: 'November 13, 2025',
     },
     {
-      id: 3,
-      title: 'Peer Piece #3',
-      submitted: 'November 13, 2025',
-      feedback: [
-        {
-          from: 'Peer 1',
-          positive: 'Bold and experimental. Really pushes creative boundaries.',
-          growth: 'Consider grounding the piece with stronger conceptual framework.',
-        },
-      ],
+      id: 9,
+      title: 'Module 9 Assignment',
+      asset: '/portfolio/assets/assignment_9.pdf',
+      type: 'pdf',
+      shared: 'November 13, 2025',
     },
   ]
 
@@ -59,7 +40,6 @@ export default function FeedbackPage() {
             <Link href="/modules" className="hover:text-sage transition">Modules</Link>
             <Link href="/feedback" className="font-bold text-sage">Feedback</Link>
             <Link href="/final-piece" className="hover:text-sage transition">Final Piece</Link>
-            <Link href="/reflection" className="hover:text-sage transition">Reflection</Link>
           </div>
         </div>
       </nav>
@@ -79,11 +59,11 @@ export default function FeedbackPage() {
             transition={{ delay: 0.1 }}
             className="text-lg text-charcoal/60 mb-12"
           >
-            Three creative pieces shared for peer review (November 13) + Feedback received (November 20)
+            Three pieces you shared for peer feedback (Modules 6, 7, and 9). No feedback was received from peers.
           </motion.p>
 
           <div className="space-y-8">
-            {peerFeedback.map((piece, idx) => (
+            {sharedPieces.map((piece, idx) => (
               <motion.div
                 key={piece.id}
                 initial={{ opacity: 0, y: 20 }}
@@ -93,30 +73,22 @@ export default function FeedbackPage() {
               >
                 <div className="bg-terracotta/10 p-6 border-b border-sage/30">
                   <h3 className="text-2xl font-serif font-bold text-charcoal mb-2">{piece.title}</h3>
-                  <p className="text-sm text-charcoal/60">Submitted: {piece.submitted}</p>
+                  <p className="text-sm text-charcoal/60">Shared: {piece.shared}</p>
                 </div>
 
                 <div className="p-6">
-                  <div className="space-y-6">
-                    {piece.feedback.map((feedback, fidx) => (
-                      <motion.div
-                        key={fidx}
-                        initial={{ opacity: 0, x: -10 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: 0.1 + fidx * 0.05 }}
-                        className="bg-charcoal/3 p-4 rounded-lg border-l-4 border-sage"
-                      >
-                        <p className="font-semibold text-charcoal mb-3">From: {feedback.from}</p>
-                        <div className="mb-3">
-                          <p className="text-sm font-medium text-sage mb-1">What worked well:</p>
-                          <p className="text-charcoal/70">{feedback.positive}</p>
-                        </div>
-                        <div>
-                          <p className="text-sm font-medium text-sage mb-1">Room to grow:</p>
-                          <p className="text-charcoal/70">{feedback.growth}</p>
-                        </div>
-                      </motion.div>
-                    ))}
+                  {piece.type === 'mp4' ? (
+                    <video controls style={{ width: '100%', maxHeight: 420 }}>
+                      <source src={piece.asset} type="video/mp4" />
+                      Your browser does not support the video tag.
+                    </video>
+                  ) : (
+                    <iframe src={piece.asset} style={{ width: '100%', height: 480, border: '1px solid #ddd' }} />
+                  )}
+
+                  <div className="mt-4 p-4 bg-charcoal/3 rounded-lg">
+                    <p className="font-semibold">Feedback status</p>
+                    <p className="text-sm text-charcoal/70">No feedback was received for this piece.</p>
                   </div>
                 </div>
               </motion.div>
