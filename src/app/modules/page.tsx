@@ -10,8 +10,8 @@ export default function ModulesPage() {
   const modules = Array.from({ length: 12 }, (_, i) => ({
     id: i + 1,
     title: `Module ${i + 1}`,
-    description: 'Creative work and reflection from this module',
-    content: 'Add your creative piece and reflection questions here...',
+    description: '',
+    content: '',
   }))
 
   const [assetMap, setAssetMap] = useState<Record<number, string>>({})
@@ -119,10 +119,9 @@ export default function ModulesPage() {
                     exit={{ opacity: 0, height: 0 }}
                     className="mt-4 p-6 bg-charcoal/5 rounded-lg"
                   >
-                    <p className="text-charcoal/70 mb-4">{module.content}</p>
-                    <div className="text-sm text-sage mb-4">
-                      📝 Add your reflection and creative work here
-                    </div>
+                    {module.content && (
+                      <p className="text-charcoal/70 mb-4">{module.content}</p>
+                    )}
                     {assetMap[module.id] ? (
                       <div className="mb-4">
                         {/* Inline embed: prefer video for mp4, iframe for pdf */}
