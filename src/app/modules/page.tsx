@@ -154,18 +154,7 @@ export default function ModulesPage() {
             ))}
           </div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5 }}
-            className="mt-12 p-8 bg-sage/10 rounded-lg border border-sage/30"
-          >
-            <h3 className="text-lg font-serif font-bold text-charcoal mb-3">Template Instructions</h3>
-            <p className="text-charcoal/70 text-sm">
-              For each module, include your creative piece, any reflection questions answered, and personal insights. 
-              This creates a comprehensive record of your creative journey throughout the semester.
-            </p>
-          </motion.div>
+          {/* Template instructions removed as requested */}
         </div>
       </section>
     </main>
