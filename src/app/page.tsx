@@ -1,130 +1,216 @@
 'use client'
 
-import { useState } from 'react'
-import Link from 'next/link'
 import { motion } from 'framer-motion'
+import Link from 'next/link'
+import { useState } from 'react'
 
 export default function Home() {
-  const [, setHoveredCard] = useState<number | null>(null)
+  const [hoveredCard, setHoveredCard] = useState<number | null>(null)
 
-  const features = [
+  const fadeInUp = {
+    initial: { opacity: 0, y: 30 },
+    animate: { opacity: 1, y: 0 },
+    transition: { duration: 0.6, ease: 'easeOut' },
+  }
+
+  const sections = [
     {
-      title: 'AI-Powered Creativity',
-      description: 'Harness the power of artificial intelligence to generate unique and innovative ideas.',
-      icon: '🤖',
-      color: 'from-purple-500 to-pink-500',
+      id: 1,
+      title: 'Modules 1-12',
+      description: 'Complete creative work and reflections from the semester',
+      href: '/modules',
+      color: 'from-sage to-charcoal',
     },
     {
-      title: 'Collaborative Ideation',
-      description: 'Work together with your team in real-time to brainstorm and refine ideas.',
-      icon: '👥',
-      color: 'from-blue-500 to-cyan-500',
+      id: 2,
+      title: 'Peer Feedback',
+      description: 'Three pieces shared & feedback received from peers',
+      href: '/feedback',
+      color: 'from-terracotta to-sage',
     },
     {
-      title: 'Visual Mind Mapping',
-      description: 'Create stunning visual representations of your thoughts and concepts.',
-      icon: '🗺️',
-      color: 'from-green-500 to-emerald-500',
+      id: 3,
+      title: 'Final Piece',
+      description: 'Expanded & revised creative work incorporating feedback',
+      href: '/final-piece',
+      color: 'from-gold to-terracotta',
     },
     {
-      title: 'Trend Analysis',
-      description: 'Stay ahead of the curve with AI-driven insights into emerging trends.',
-      icon: '📈',
-      color: 'from-orange-500 to-red-500',
+      id: 4,
+      title: 'Reflection',
+      description: 'One-page essay: journey, growth, and creative insights',
+      href: '/reflection',
+      color: 'from-charcoal to-sage',
     },
   ]
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-purple-900 to-violet-900">
-      {/* Hero Section */}
-      <div className="container mx-auto px-4 py-20">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="text-center"
-        >
-          <h1 className="text-6xl md:text-8xl font-bold text-white mb-6 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-600">
-            CREATIVITY & IDEATION
-          </h1>
-          <p className="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto">
-            Unlock your creative potential with AI-powered tools designed to spark innovation and transform ideas into reality.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/dashboard">
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="px-8 py-4 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-full font-semibold text-lg shadow-lg hover:shadow-xl transition-shadow"
-              >
-                Get Started
-              </motion.button>
-            </Link>
-            <Link href="#features">
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="px-8 py-4 bg-white/10 backdrop-blur-sm text-white rounded-full font-semibold text-lg border-2 border-white/20 hover:bg-white/20 transition-colors"
-              >
-                Learn More
-              </motion.button>
-            </Link>
-          </div>
-        </motion.div>
-
-        {/* Features Grid */}
-        <motion.div
-          id="features"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.4, duration: 0.8 }}
-          className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mt-20"
-        >
-          {features.map((feature, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1 * index, duration: 0.5 }}
-              whileHover={{ scale: 1.05 }}
-              onHoverStart={() => setHoveredCard(index)}
-              onHoverEnd={() => setHoveredCard(null)}
-              className="relative group"
-            >
-              <div className="absolute inset-0 bg-gradient-to-r opacity-0 group-hover:opacity-100 transition-opacity rounded-2xl blur-xl"></div>
-              <div className="relative bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 hover:border-white/40 transition-colors">
-                <div className="text-5xl mb-4">{feature.icon}</div>
-                <h3 className="text-xl font-bold text-white mb-2">{feature.title}</h3>
-                <p className="text-gray-300">{feature.description}</p>
-              </div>
-            </motion.div>
-          ))}
-        </motion.div>
-
-        {/* CTA Section */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.8, duration: 0.8 }}
-          className="mt-32 text-center"
-        >
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            Ready to Transform Your Ideas?
-          </h2>
-          <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-            Join thousands of innovators who are already using our platform to bring their creative visions to life.
-          </p>
-          <Link href="/dashboard">
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="px-12 py-5 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-full font-semibold text-xl shadow-2xl hover:shadow-purple-500/50 transition-shadow"
-            >
-              Start Creating Now
-            </motion.button>
+    <main className="min-h-screen bg-cream">
+      {/* Navigation */}
+      <nav className="fixed top-0 w-full bg-cream/95 backdrop-blur-md z-50 border-b border-sage/20">
+        <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+          <Link href="/" className="text-xl font-serif font-bold text-charcoal">
+            C&I Portfolio
           </Link>
+          <div className="flex gap-8 text-sm">
+            <Link href="/modules" className="hover:text-sage transition">Modules</Link>
+            <Link href="/feedback" className="hover:text-sage transition">Feedback</Link>
+            <Link href="/final-piece" className="hover:text-sage transition">Final Piece</Link>
+            <Link href="/reflection" className="hover:text-sage transition">Reflection</Link>
+          </div>
+        </div>
+      </nav>
+
+      {/* Hero Section */}
+      <section className="pt-40 pb-20 px-6">
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8 }}
+          className="max-w-4xl mx-auto text-center"
+        >
+          <motion.h1
+            {...fadeInUp}
+            className="text-5xl md:text-7xl font-serif font-bold mb-6 text-charcoal"
+          >
+            Creativity & Ideation
+          </motion.h1>
+          <motion.p
+            {...fadeInUp}
+            transition={{ duration: 0.6, ease: 'easeOut', delay: 0.2 }}
+            className="text-xl text-sage mb-8 font-light"
+          >
+            A Culmination of Creative Journey & Personal Growth
+          </motion.p>
+          <motion.p
+            {...fadeInUp}
+            transition={{ duration: 0.6, ease: 'easeOut', delay: 0.4 }}
+            className="text-lg text-charcoal/60 mb-12 max-w-2xl mx-auto"
+          >
+            DMC2002 Final Project | December 11, 2025
+          </motion.p>
+          <motion.div
+            {...fadeInUp}
+            transition={{ duration: 0.6, ease: 'easeOut', delay: 0.6 }}
+          >
+            <Link
+              href="#portfolio"
+              className="inline-block px-8 py-3 bg-charcoal text-cream font-serif rounded-sm hover:bg-sage transition"
+            >
+              Explore Portfolio
+            </Link>
+          </motion.div>
         </motion.div>
-      </div>
-    </div>
+      </section>
+
+      {/* Portfolio Sections */}
+      <section id="portfolio" className="py-20 px-6">
+        <div className="max-w-6xl mx-auto">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="text-4xl font-serif text-center mb-16 text-charcoal"
+          >
+            Portfolio Contents
+          </motion.h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {sections.map((section, idx) => (
+              <motion.div
+                key={section.id}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: idx * 0.1 }}
+                viewport={{ once: true }}
+                onMouseEnter={() => setHoveredCard(section.id)}
+                onMouseLeave={() => setHoveredCard(null)}
+              >
+                <Link href={section.href}>
+                  <div className={`relative h-64 rounded-lg overflow-hidden cursor-pointer group`}>
+                    <div
+                      className={`absolute inset-0 bg-gradient-to-br ${section.color} opacity-0 group-hover:opacity-100 transition-opacity duration-300`}
+                    />
+                    <div className="relative h-full flex flex-col justify-end p-8 bg-charcoal/5 group-hover:bg-charcoal/10 transition">
+                      <h3 className="text-2xl font-serif font-bold text-charcoal mb-3 group-hover:text-cream transition">
+                        {section.title}
+                      </h3>
+                      <p className="text-charcoal/70 group-hover:text-cream/80 transition">
+                        {section.description}
+                      </p>
+                      <div className="mt-4 text-sm font-medium text-sage group-hover:text-gold transition">
+                        Explore →
+                      </div>
+                    </div>
+                  </div>
+                </Link>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* About Project */}
+      <section className="py-20 px-6 bg-charcoal/5">
+        <div className="max-w-4xl mx-auto">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="text-3xl font-serif mb-8 text-charcoal"
+          >
+            Project Overview
+          </motion.h2>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            viewport={{ once: true }}
+            className="grid grid-cols-1 md:grid-cols-3 gap-8"
+          >
+            {[
+              {
+                icon: '✨',
+                title: 'Complete Work',
+                desc: 'All 12 modules with creative pieces and reflections',
+              },
+              {
+                icon: '🤝',
+                title: 'Peer Feedback',
+                desc: 'Collaboration and constructive criticism from classmates',
+              },
+              {
+                icon: '📈',
+                title: 'Evolution',
+                desc: 'Revised final piece incorporating feedback and growth',
+              },
+            ].map((item, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.3 + idx * 0.1 }}
+                viewport={{ once: true }}
+                className="text-center"
+              >
+                <div className="text-4xl mb-4">{item.icon}</div>
+                <h3 className="text-xl font-serif font-bold mb-3 text-charcoal">{item.title}</h3>
+                <p className="text-charcoal/60">{item.desc}</p>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="py-12 px-6 border-t border-sage/20">
+        <div className="max-w-6xl mx-auto text-center text-charcoal/60 text-sm">
+          <p>DMC2002: Creativity & Ideation | Final Project December 2025</p>
+          <p className="mt-2">A portfolio celebrating creative journey and personal growth</p>
+        </div>
+      </footer>
+    </main>
   )
 }
