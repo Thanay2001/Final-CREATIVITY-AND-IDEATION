@@ -15,6 +15,23 @@ function assetUrlFor(item: Item) {
   return `/portfolio/assets/${name}`;
 }
 
+export async function generateStaticParams() {
+  const jsonPath = path.join(process.cwd(), 'final portfolio', 'portfolio_index.json');
+  const raw = fs.readFileSync(jsonPath, 'utf8');
+  const data = JSON.parse(raw);
+  const items: Item[] = data.items || [];
+
+  const moduleIds = new Set<string>();
+  items.forEach((it: Item) => {
+    const cleaned = it.cleaned_filename || it.filename || '';
+    const base = path.basename(cleaned);
+    const m = base.match(/module[_\- ]?(\d+)/i) || (it.filename || '').match(/module[_\- ]?(\d+)/i);
+    if (m) moduleIds.add(m[1]);
+  });
+
+  return Array.from(moduleIds).map((id) => ({ id }));
+}
+
 export default function ModulePage({ params }: { params: { id: string } }) {
   const id = params.id;
   const jsonPath = path.join(process.cwd(), 'final portfolio', 'portfolio_index.json');
@@ -29,7 +46,6 @@ export default function ModulePage({ params }: { params: { id: string } }) {
     return m ? m[1] === id : false;
   });
 
-  // citizimum submissions (module 11 may have shared pieces from other modules)
   const citiz = (data && data.citizimum && data.citizimum[id]) ? data.citizimum[id] : null;
 
   return (
