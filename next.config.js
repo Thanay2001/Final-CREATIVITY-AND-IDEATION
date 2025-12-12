@@ -1,8 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  basePath: '/Final-CREATIVITY-AND-IDEATION',
-  assetPrefix: '/Final-CREATIVITY-AND-IDEATION/',
+  basePath: process.env.NODE_ENV === 'production' ? '/Final-CREATIVITY-AND-IDEATION' : '',
+  assetPrefix: process.env.NODE_ENV === 'production' ? '/Final-CREATIVITY-AND-IDEATION/' : '',
   output: 'export',
 }
 
