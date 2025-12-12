@@ -161,9 +161,9 @@ export default function ModulesPage() {
                       className="mt-4 p-4 bg-charcoal/5 rounded-lg space-y-4"
                     >
                       {module.type === 'pdf' && (
-                        <iframe
-                          title={module.title}
+                        <embed
                           src={module.asset}
+                          type="application/pdf"
                           className="w-full h-[70vh] rounded-md border border-sage/30 bg-white"
                         />
                       )}
@@ -187,9 +187,9 @@ export default function ModulesPage() {
                       {module.reflectionPdf && (
                         <div className="mt-4">
                           <h4 className="text-sm font-semibold text-charcoal mb-2">Reflection Document</h4>
-                          <iframe
-                            title={`${module.title} - Reflection`}
+                          <embed
                             src={module.reflectionPdf}
+                            type="application/pdf"
                             className="w-full h-[70vh] rounded-md border border-sage/30 bg-white"
                           />
                         </div>
@@ -198,9 +198,9 @@ export default function ModulesPage() {
                       {module.assignmentPdf && (
                         <div className="mt-4">
                           <h4 className="text-sm font-semibold text-charcoal mb-2">Assignment Document</h4>
-                          <iframe
-                            title={`${module.title} - Assignment`}
+                          <embed
                             src={module.assignmentPdf}
+                            type="application/pdf"
                             className="w-full h-[70vh] rounded-md border border-sage/30 bg-white"
                           />
                         </div>
