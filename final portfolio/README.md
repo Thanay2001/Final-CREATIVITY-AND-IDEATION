@@ -19,7 +19,7 @@ PDFs
 - `Thanay Module 5 Assignment (1).pdf` — your Module 5 submission
 - `Thanay-Module 3 Assignment (1).pdf` — your Module 3 submission
 - `Thanay_screenplay (1).pdf` — a screenplay with your name
-- `Module 12 Visision Doc (1).pdf` — vision/document for Module 12 (possible typo "Visision")
+- `Module 12 Vision Doc (1).pdf` — vision/document for Module 12 (corrected filename)
 
 DOCX / PDF-of-DOCX
 - `Module 2 Assignment Self-Analysis.docx` — editable self-analysis (open to extract text)
