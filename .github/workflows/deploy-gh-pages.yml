@@ -6,6 +6,11 @@ on:
     branches: [ pages-deploy ]
   workflow_dispatch: {}
 
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
 jobs:
   build:
     name: Build Next.js site
