@@ -5,7 +5,7 @@ import Link from 'next/link'
 import { useState } from 'react'
 
 export default function Home() {
-  const [, setHoveredCard] = useState<number | null>(null)
+  const [hoveredCard, setHoveredCard] = useState<number | null>(null)
 
   const fadeInUp = {
     initial: { opacity: 0, y: 30 },
@@ -35,13 +35,6 @@ export default function Home() {
       href: '/final-piece',
       color: 'from-gold to-terracotta',
     },
-    {
-      id: 4,
-      title: 'Reflection',
-      description: 'One-page essay: journey, growth, and creative insights',
-      href: '/reflection',
-      color: 'from-charcoal to-sage',
-    },
   ]
 
   return (
@@ -56,7 +49,6 @@ export default function Home() {
             <Link href="/modules" className="hover:text-sage transition">Modules</Link>
             <Link href="/feedback" className="hover:text-sage transition">Feedback</Link>
             <Link href="/final-piece" className="hover:text-sage transition">Final Piece</Link>
-            <Link href="/reflection" className="hover:text-sage transition">Reflection</Link>
           </div>
         </div>
       </nav>
