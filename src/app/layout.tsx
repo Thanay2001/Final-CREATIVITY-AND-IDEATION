@@ -2,8 +2,8 @@ import type { Metadata } from 'next'
 import '../globals.css'
 
 export const metadata: Metadata = {
-  title: 'DMC2002 Creativity & Ideation Portfolio',
-  description: 'A culmination of creative journey through DMC2002',
+  title: 'Anthony Than - DMC2002 Creativity & Ideation Portfolio',
+  description: "Anthony Than's DMC2002 Creativity & Ideation Final Project - A culmination of creative journey through the semester",
 }
 
 export default function RootLayout({

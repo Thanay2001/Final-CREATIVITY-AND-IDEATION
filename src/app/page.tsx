@@ -62,7 +62,7 @@ export default function Home() {
             {...fadeInUp}
             className="text-5xl md:text-7xl font-serif font-bold mb-6 text-charcoal"
           >
-            Creativity & Ideation
+            Anthony Than: Creativity & Ideation
           </motion.h1>
           <motion.p
             {...fadeInUp}
