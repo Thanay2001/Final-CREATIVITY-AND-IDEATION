@@ -1,34 +1,35 @@
 
-name: Publish portfolio to GitHub Pages
+name: Deploy Next.js to GitHub Pages
 
 on:
   push:
-    branches: [ main ]
+    branches: [ pages-deploy ]
   workflow_dispatch: {}
 
-# Give the workflow explicit permissions needed to push to gh-pages
-permissions:
-  contents: write
-  pages: write
-  id-token: write
-
 jobs:
-  deploy:
-    name: Deploy public/portfolio to gh-pages
+  build:
+    name: Build Next.js site
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-        with:
-          # fetch full history to avoid push issues from shallow clones
-          fetch-depth: 0
-          # ensure the action runner has credentials to push
-          persist-credentials: true
 
-      - name: Publish to GitHub Pages
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Deploy to gh-pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: public/portfolio
+          publish_dir: ./out
           publish_branch: gh-pages
           allow_empty_commit: true
