@@ -4,12 +4,14 @@ import { motion } from 'framer-motion'
 import Link from 'next/link'
 
 export default function FeedbackPage() {
+  const basePath = process.env.NODE_ENV === 'production' ? '/Final-CREATIVITY-AND-IDEATION' : '';
+  
   const submissions = [
     {
       id: 1,
       title: 'Module 6 — Spoken Monologue',
       submitted: 'Nov 13, 2025',
-      artifact: { label: 'Watch MP4', href: '/portfolio/assets/module_6_assignment.mp4' },
+      artifact: { label: 'Watch MP4', href: `${basePath}/portfolio/assets/module_6_assignment.mp4` },
       summary: 'Rapid-fire, chaotic morning monologue turning small disasters into humor.',
       feedbackNotes: ['No peer feedback was returned for this piece. Documenting that absence for transparency.'],
       revision: 'Without peer notes, I kept my own plan: tighten the opening beat and add intentional pauses without losing energy.',
@@ -18,7 +20,7 @@ export default function FeedbackPage() {
       id: 2,
       title: 'Module 7 — Improv Plea (Cat Pickup)',
       submitted: 'Nov 13, 2025',
-      artifact: { label: 'Watch MP4', href: '/portfolio/assets/module_7.mp4' },
+      artifact: { label: 'Watch MP4', href: `${basePath}/portfolio/assets/module_7.mp4` },
       summary: 'Improvised plea to borrow a car to rescue a cat—leaning into playful desperation.',
       feedbackNotes: ['No peer feedback was returned for this piece.'],
       revision: 'I will add a sharper setup sentence and keep the camera rolling for more unscripted reactions, per my own notes.',
@@ -27,7 +29,7 @@ export default function FeedbackPage() {
       id: 3,
       title: 'Module 9 — Nebula of Thought (Digital Painting)',
       submitted: 'Nov 13, 2025',
-      artifact: { label: 'View Artwork', href: '/portfolio/assets/nebula_of_thought.png' },
+      artifact: { label: 'View Artwork', href: `${basePath}/portfolio/assets/nebula_of_thought.png` },
       summary: 'Glowing orbs in a dark void to show ideas/emotions orbiting each other, painted in MS Paint.',
       feedbackNotes: ['No peer feedback was returned for this piece.'],
       revision: 'My own next step: test a faint focal trail and bump contrast on a few anchor orbs.',

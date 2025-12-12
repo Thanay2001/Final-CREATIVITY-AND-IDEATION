@@ -4,6 +4,8 @@ import { motion } from 'framer-motion'
 import Link from 'next/link'
 
 export default function NebulaPage() {
+  const basePath = process.env.NODE_ENV === 'production' ? '/Final-CREATIVITY-AND-IDEATION' : '';
+
   return (
     <main className="min-h-screen bg-cream pt-24">
       <nav className="fixed top-0 w-full bg-cream/95 backdrop-blur-md z-50 border-b border-sage/20">
@@ -38,7 +40,7 @@ export default function NebulaPage() {
           </motion.p>
 
           <div className="mb-8">
-            <img src="/portfolio/assets/nebula_of_thought.png" alt="Nebula of Thought" className="w-full rounded-lg border border-sage/20" />
+            <img src={`${basePath}/portfolio/assets/nebula_of_thought.png`} alt="Nebula of Thought" className="w-full rounded-lg border border-sage/20" />
           </div>
 
           <div className="prose max-w-none text-charcoal/80">
