@@ -2,11 +2,8 @@
 
 import { motion } from 'framer-motion'
 import Link from 'next/link'
-import { useState } from 'react'
 
 export default function Home() {
-  const [hoveredCard, setHoveredCard] = useState<number | null>(null)
-
   const fadeInUp = {
     initial: { opacity: 0, y: 30 },
     animate: { opacity: 1, y: 0 },
@@ -116,8 +113,6 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: idx * 0.1 }}
                 viewport={{ once: true }}
-                onMouseEnter={() => setHoveredCard(section.id)}
-                onMouseLeave={() => setHoveredCard(null)}
               >
                 <Link href={section.href}>
                   <div className={`relative h-64 rounded-lg overflow-hidden cursor-pointer group`}>
