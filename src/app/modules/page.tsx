@@ -161,17 +161,11 @@ export default function ModulesPage() {
                       className="mt-4 p-4 bg-charcoal/5 rounded-lg space-y-4"
                     >
                       {module.type === 'pdf' && (
-                        <div className="bg-white rounded-md border border-sage/30 p-6 text-center">
-                          <p className="text-charcoal/70 mb-4">📄 PDF Document</p>
-                          <a
-                            href={module.asset}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-block px-6 py-2 bg-sage text-cream rounded hover:bg-charcoal transition"
-                          >
-                            Open PDF
-                          </a>
-                        </div>
+                        <iframe
+                          src={module.asset}
+                          className="w-full h-[600px] rounded-md border border-sage/30"
+                          title={module.title}
+                        />
                       )}
                       {module.type === 'mp4' && (
                         <video
@@ -191,30 +185,24 @@ export default function ModulesPage() {
                       )}
 
                       {module.reflectionPdf && (
-                        <div className="bg-white rounded-md border border-sage/30 p-6 text-center">
-                          <p className="text-charcoal/70 mb-4">📄 Reflection Document</p>
-                          <a
-                            href={module.reflectionPdf}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-block px-6 py-2 bg-sage text-cream rounded hover:bg-charcoal transition"
-                          >
-                            Open Reflection PDF
-                          </a>
+                        <div className="space-y-2">
+                          <h4 className="text-sm font-semibold text-charcoal">Reflection:</h4>
+                          <iframe
+                            src={module.reflectionPdf}
+                            className="w-full h-[600px] rounded-md border border-sage/30"
+                            title={`${module.title} - Reflection`}
+                          />
                         </div>
                       )}
 
                       {module.assignmentPdf && (
-                        <div className="bg-white rounded-md border border-sage/30 p-6 text-center">
-                          <p className="text-charcoal/70 mb-4">📄 Assignment Document</p>
-                          <a
-                            href={module.assignmentPdf}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-block px-6 py-2 bg-sage text-cream rounded hover:bg-charcoal transition"
-                          >
-                            Open Assignment PDF
-                          </a>
+                        <div className="space-y-2">
+                          <h4 className="text-sm font-semibold text-charcoal">Assignment:</h4>
+                          <iframe
+                            src={module.assignmentPdf}
+                            className="w-full h-[600px] rounded-md border border-sage/30"
+                            title={`${module.title} - Assignment`}
+                          />
                         </div>
                       )}
                     </motion.div>
