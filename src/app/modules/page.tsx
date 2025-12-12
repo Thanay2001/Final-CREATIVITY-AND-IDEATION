@@ -161,11 +161,17 @@ export default function ModulesPage() {
                       className="mt-4 p-4 bg-charcoal/5 rounded-lg space-y-4"
                     >
                       {module.type === 'pdf' && (
-                        <embed
-                          src={module.asset}
-                          type="application/pdf"
-                          className="w-full h-[70vh] rounded-md border border-sage/30 bg-white"
-                        />
+                        <div className="bg-white rounded-md border border-sage/30 p-6 text-center">
+                          <p className="text-charcoal/70 mb-4">📄 PDF Document</p>
+                          <a
+                            href={module.asset}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-block px-6 py-2 bg-sage text-cream rounded hover:bg-charcoal transition"
+                          >
+                            Open PDF
+                          </a>
+                        </div>
                       )}
                       {module.type === 'mp4' && (
                         <video
@@ -185,24 +191,30 @@ export default function ModulesPage() {
                       )}
 
                       {module.reflectionPdf && (
-                        <div className="mt-4">
-                          <h4 className="text-sm font-semibold text-charcoal mb-2">Reflection Document</h4>
-                          <embed
-                            src={module.reflectionPdf}
-                            type="application/pdf"
-                            className="w-full h-[70vh] rounded-md border border-sage/30 bg-white"
-                          />
+                        <div className="bg-white rounded-md border border-sage/30 p-6 text-center">
+                          <p className="text-charcoal/70 mb-4">📄 Reflection Document</p>
+                          <a
+                            href={module.reflectionPdf}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-block px-6 py-2 bg-sage text-cream rounded hover:bg-charcoal transition"
+                          >
+                            Open Reflection PDF
+                          </a>
                         </div>
                       )}
 
                       {module.assignmentPdf && (
-                        <div className="mt-4">
-                          <h4 className="text-sm font-semibold text-charcoal mb-2">Assignment Document</h4>
-                          <embed
-                            src={module.assignmentPdf}
-                            type="application/pdf"
-                            className="w-full h-[70vh] rounded-md border border-sage/30 bg-white"
-                          />
+                        <div className="bg-white rounded-md border border-sage/30 p-6 text-center">
+                          <p className="text-charcoal/70 mb-4">📄 Assignment Document</p>
+                          <a
+                            href={module.assignmentPdf}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-block px-6 py-2 bg-sage text-cream rounded hover:bg-charcoal transition"
+                          >
+                            Open Assignment PDF
+                          </a>
                         </div>
                       )}
                     </motion.div>
